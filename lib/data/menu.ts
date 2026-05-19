@@ -33,7 +33,7 @@ export const menu: MenuItem[] = [
     category: "popular",
     popular: true,
     image:
-      "https://images.unsplash.com/photo-1633945274405-b6c8a47f6d1d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "butter-naan",

@@ -37,7 +37,7 @@ export function Hero() {
         className="absolute inset-0 lg:hidden"
       >
         <Image
-          src="https://images.unsplash.com/photo-1633945274405-b6c8a47f6d1d?auto=format&fit=crop&w=1600&q=80"
+          src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1600&q=80"
           alt="Celebrations Restaurant signature biryani"
           fill
           priority
@@ -139,7 +139,7 @@ export function Hero() {
           >
             <motion.div style={{ y: imageY }} className="absolute inset-0">
               <Image
-                src="https://images.unsplash.com/photo-1633945274405-b6c8a47f6d1d?auto=format&fit=crop&w=1200&q=85"
+                src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=85"
                 alt="Celebrations Restaurant signature biryani"
                 fill
                 priority

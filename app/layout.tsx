@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1633945274405-b6c8a47f6d1d?auto=format&fit=crop&w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80",
         width: 1200,
         height: 630,
         alt: "Celebrations Restaurant signature dish",
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     description:
       "4.5★ · 6,653 reviews · North Indian classics, premium ambiance, three ways to enjoy.",
     images: [
-      "https://images.unsplash.com/photo-1633945274405-b6c8a47f6d1d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80",
     ],
   },
   alternates: {
@@ -101,7 +101,7 @@ const restaurantJsonLd = {
   "@type": "Restaurant",
   name: site.name,
   image: [
-    "https://images.unsplash.com/photo-1633945274405-b6c8a47f6d1d?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80",
   ],
   "@id": site.url,
   url: site.url,
