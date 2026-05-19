@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config *)",
+      "Bash(Select-String -Pattern \"user\\\\.\")",
+      "PowerShell(cmdkey /delete:LegacyGeneric:target=git:https://github.com)",
+      "PowerShell(cmdkey /delete:\"LegacyGeneric:target=GitHub - https://api.github.com/talaganaRajesh\")",
+      "PowerShell($target = 'GitHub - https://api.github.com/talaganaRajesh'; & cmdkey \"/delete:LegacyGeneric:target=$target\")",
+      "PowerShell(cmd /c 'cmdkey /delete:\"LegacyGeneric:target=GitHub - https://api.github.com/talaganaRajesh\"')",
+      "PowerShell($psi = New-Object System.Diagnostics.ProcessStartInfo; $psi.FileName = 'cmdkey.exe'; $psi.Arguments = '/delete:\"LegacyGeneric:target=GitHub - https://api.github.com/talaganaRajesh\"'; $psi.UseShellExecute = $false; $psi.RedirectStandardOutput = $true; $psi.RedirectStandardError = $true; $p = [System.Diagnostics.Process]::Start\\($psi\\); $p.WaitForExit\\(\\); Write-Output \"ExitCode=$\\($p.ExitCode\\)\"; Write-Output $p.StandardOutput.ReadToEnd\\(\\); Write-Output $p.StandardError.ReadToEnd\\(\\))"
+    ]
+  }
+}
