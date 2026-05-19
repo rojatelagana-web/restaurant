@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-deep: #111111;
+  --color-charcoal-black: #0d0d0d;
+  --color-gold: #c9953a;
+  --color-gold-light: #d9b167;
+  --color-gold-dark: #a47a2a;
+  --color-cream: #f5efe0;
+  --color-cream-light: #fdfaf5;
+  --color-cream-warm: #2a1f0e;
+  --color-muted: #6b6b6b;
+  --color-border-warm: #e8dfc8;
+
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-accent: "Playfair Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --shadow-gold-glow: 0 10px 40px -10px rgba(201, 149, 58, 0.35);
+  --shadow-soft: 0 4px 24px -8px rgba(26, 26, 26, 0.12);
+  --shadow-lift: 0 20px 48px -16px rgba(26, 26, 26, 0.25);
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #fdfaf5;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1a1a1a;
+  background: #fdfaf5;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: #c9953a;
+  color: #1a1a1a;
+}
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fdfaf5;
+}
+::-webkit-scrollbar-thumb {
+  background: #c9953a;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a47a2a;
+}
+
+/* ----- Utility helpers ----- */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.font-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-gold);
+}
+
+.heading-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+}
+
+.heading-section {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* ----- Shimmer button hover ----- */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shimmer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+  z-index: -1;
+}
+.btn-shimmer:hover::before {
+  transform: translateX(100%);
+}
+
+/* ----- Gold underline drawer (for hero word) ----- */
+.gold-underline {
+  position: relative;
+  display: inline-block;
+}
+.gold-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.05em;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(to right, transparent, #c9953a 30%, #c9953a 70%, transparent);
+  animation: drawUnderline 1.4s ease 1.2s forwards;
+}
+@keyframes drawUnderline {
+  to {
+    width: 100%;
+  }
+}
+
+/* ----- WhatsApp bounce ----- */
+@keyframes gentleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-6px);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-3px);
+  }
+  40% {
+    transform: translateY(0);
+  }
+}
+.whatsapp-bounce {
+  animation: gentleBounce 3s ease-in-out infinite;
+}
+
+/* ----- Marquee infinite scroll ----- */
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marqueeRight {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.marquee-left {
+  animation: marqueeLeft 50s linear infinite;
+}
+.marquee-right {
+  animation: marqueeRight 60s linear infinite;
+}
+.marquee-pause:hover .marquee-left,
+.marquee-pause:hover .marquee-right {
+  animation-play-state: paused;
+}
+
+/* ----- Gold gradient text ----- */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9953a 0%, #d9b167 50%, #a47a2a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ----- Grain overlay ----- */
+.bg-grain {
+  position: relative;
+}
+.bg-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+}
+
+/* ----- Soft section divider ----- */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c9953a, transparent);
+}
+
+/* ----- Form input style ----- */
+.form-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: #fdfaf5;
+  border: 1px solid #e8dfc8;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #1a1a1a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-field:focus {
+  outline: none;
+  border-color: #c9953a;
+  box-shadow: 0 0 0 3px rgba(201, 149, 58, 0.15);
+}
+.form-field::placeholder {
+  color: #9a9a9a;
+}
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
